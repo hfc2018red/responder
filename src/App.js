@@ -21,7 +21,7 @@ class App extends Component {
     this.setState(Object.assign({}, this.state, {
       activeThread: threadId
 	}));
-  });
+  }
   
   componentDidMount() {
     window.fetch('https://hfc2018red.herokuapp.com/threads')
