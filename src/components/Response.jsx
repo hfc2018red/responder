@@ -6,15 +6,17 @@ function Response() {
     <div style={styles.main}>
       <h1> This will be userQuestion variable.</h1>
       <h3>Thank you for your question and we can suggest the following to help: </h3>
+      <form>
+        <textarea style={styles.textarea}>
+          Please type your chat, information or answer here.
+        </textarea>
+        <p>Please include helpful links.</p>
 
-      <textarea style={styles.textarea}>
-        Please type your chat, information or answer here.
-      </textarea>
-      <p>Please include helpful links.</p>
-
-      <textarea style={styles.textarea}>
-        Please type your chat, information or answer here.
-      </textarea>
+        <textarea style={styles.textarea}>
+          Please type your chat, information or answer here.
+        </textarea>
+      </form>
+      <button style={styles.button} type='submit'>Send</button>
     </div>
   )
 }
@@ -31,6 +33,9 @@ const styles = {
     border: '5px solid gray',
     fontSize: '20px',
     padding: '5px'
+  },
+  button: {
+    fontSize: '20px'
   }
 };
 

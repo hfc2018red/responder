@@ -8,8 +8,8 @@ function Nav() {
       </div>
       <div>
         <ul style={styles.ul}>
-          <li style={styles.li}>Placeholder</li>
-          <li style={styles.li}>Placeholder</li>
+          <li style={styles.li}>Participating Organizations</li>
+          <li style={styles.li}>Resources</li>
           <li style={styles.li}>Sign Up</li>
           <li style={styles.li}>Log In</li>
         </ul>
