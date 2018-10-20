@@ -12,7 +12,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      threads: []
+      threads: [],
+      activeThread: undefined
     };
   }
   
@@ -47,7 +48,7 @@ class App extends Component {
           <BrowserRouter>
             <Route render={()=><IncomingQuestions threads={this.state.threads}/> }/>
           </BrowserRouter>
-          <Response />
+          <Response activeThread={this.state.activeThread} />
         </div>
         <FooterSection />
       </div>
