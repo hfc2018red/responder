@@ -16,6 +16,12 @@ class App extends Component {
       activeThread: undefined
     };
   }
+
+  handleSelectThread(threadId) {
+    this.setState(Object.assign({}, this.state, {
+      activeThread: threadId
+	}));
+  });
   
   componentDidMount() {
     window.fetch('https://hfc2018red.herokuapp.com/threads')
@@ -46,7 +52,7 @@ class App extends Component {
         <Nav />
         <div style={styles.main}>
           <BrowserRouter>
-            <Route render={()=><IncomingQuestions threads={this.state.threads}/> }/>
+            <Route render={()=><IncomingQuestions threads={this.state.threads} handleSelectThread={this.handleSelectThread.bind(this)} /> }/>
           </BrowserRouter>
           <Response activeThread={this.state.activeThread} />
         </div>
