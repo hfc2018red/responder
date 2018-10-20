@@ -35,6 +35,7 @@ class App extends Component {
             threads: json
           }));
         })
+    });
   }
   
   render() {
