@@ -15,7 +15,7 @@ class App extends Component {
   }
   
   componentDidMount() {
-    window.fetch('http://hfc2018red.herokuapp.com/threads')
+    window.fetch('https://hfc2018red.herokuapp.com/threads')
       .then(res => {
         return res.json();
       }).then(json => {
