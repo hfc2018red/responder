@@ -15,14 +15,18 @@ class App extends Component {
   }
   
   componentDidMount() {
-    window.fetch('http://hfc2018red.herokuapp.com/threads').then(res => {
-      this.setState(Object.assign({}, this.state, {
-        threads: res.json()
-      }));
-    });
+    window.fetch('http://hfc2018red.herokuapp.com/threads')
+      .then(res => {
+        return res.json();
+      }).then(json => {
+        this.setState(Object.assign({}, this.state, {
+          threads: json
+        }));
+      })
   }
   
   render() {
+    console.log(this.state.threads);
     return (
       <div>
         <Nav />

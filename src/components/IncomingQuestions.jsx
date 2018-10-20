@@ -5,10 +5,19 @@ function IncomingQuestions(props) {
   return(
     <div style={styles.main}>
       <h1>Question Queue:</h1>
-      <p>{props.threads}</p>
+      {props.threads.map(thread => {
+        thread.messages.map(message => {
+          return(
+            <div>
+              {message.body}
+            </div>
+          )
+        })
+      })}
     </div>
+
   );
-  console.log(props.threads);
+  // console.log(props.threads);
 }
 
 IncomingQuestions.propTypes = {
