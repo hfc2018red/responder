@@ -81,7 +81,9 @@ class App extends Component {
           <BrowserRouter>
             <Route render={()=><IncomingQuestions threads={this.state.threads} handleSelectThread={this.handleSelectThread.bind(this)} /> }/>
           </BrowserRouter>
+          {this.state.activeThread &&
           <Response activeThread={this.state.activeThread} handleUpdate={this.handleUpdate.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/>
+          }
         </div>
         <FooterSection />
       </div>

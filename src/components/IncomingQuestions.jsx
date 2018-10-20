@@ -3,16 +3,26 @@ import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 function IncomingQuestions(props) {
+  console.log(props.threads);
   return(
     <div style={styles.main}>
       <h1>Question Queue:</h1>
       {props.threads.map(thread => {
         return (
-          <div>
+          <div style={styles.thread}>
           {thread.messages.map(message => {
             return(
-              <div style={styles.list}>
-                {message.body}
+              <div>
+              {message.creator &&
+                <div style={styles.list}>
+                  Response: {message.body}
+                </div>
+              }
+              {!message.creator &&
+                <div style={styles.list}>
+                  Question: {message.body}
+                </div>
+              }
               </div>
             )
           })}
@@ -29,6 +39,10 @@ IncomingQuestions.propTypes = {
 };
 
 const styles = {
+  thread: {
+    borderBottom: '1px solid #333',
+    paddingBottom: '20px'
+  },
   main: {
     backgroundColor: '#D3D3D3',
     padding: '20px',
