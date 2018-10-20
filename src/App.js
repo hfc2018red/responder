@@ -30,13 +30,22 @@ class App extends Component {
     return (
       <div>
         <Nav />
-        <Response />
-        <BrowserRouter>
-        <Route render={()=><IncomingQuestions threads={this.state.threads}/> }/>
-        </BrowserRouter>
+        <div style={styles.main}>
+          <BrowserRouter>
+            <Route render={()=><IncomingQuestions threads={this.state.threads}/> }/>
+          </BrowserRouter>
+          <Response />
+        </div>
         <FooterSection />
       </div>
     );
+  }
+}
+
+const styles = {
+  main: {
+    display: 'flex'
+    
   }
 }
 

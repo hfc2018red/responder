@@ -9,7 +9,7 @@ function IncomingQuestions(props) {
       {props.threads.map(thread => {
         return thread.messages.map(message => {
           return(
-            <div>
+            <div style={styles.list}>
               {message.body}
               <div>
                 <Button>Claim</Button>
@@ -29,8 +29,14 @@ IncomingQuestions.propTypes = {
 
 const styles = {
   main: {
-    backgroundColor: 'white',
-    padding: '20px'
+    backgroundColor: '#D3D3D3',
+    padding: '20px',
+    fontSize: '20px',
+    color: 'black'
+  },
+  list: {
+    padding: '10px',
+    margin: '10px'
   }
 };
 
