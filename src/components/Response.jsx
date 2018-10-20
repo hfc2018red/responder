@@ -1,8 +1,10 @@
 import React from 'react';
+import { Button } from 'antd';
+
 
 function Response() {
   return(
-    <div>
+    <div style={styles.main}>
       <p> This will be userQuestion variable.</p>
 
       <p>Thank you for your question and we can suggest the following to help: </p>
@@ -15,8 +17,16 @@ function Response() {
       >
         Oregon Food Bank Link
       </a>
+      <Button type="primary">primary</Button>
     </div>
   )
 }
+
+const styles = {
+  main: {
+    backgroundColor: '#FF9773',
+    padding: '20px'
+  }
+};
 
 export default Response;
