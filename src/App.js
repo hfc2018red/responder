@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import Nav from './components/Nav';
 import Response from './components/Response';
 import FooterSection from './components/FooterSection';
@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      threads = []
+      threads: []
     };
   }
   
@@ -25,9 +25,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav messages={messages} />
-        <IncomingQuestions threads={this.state.threads} />
+        <Nav />
         <Response />
+        <BrowserRouter>
+        <Route render={()=><IncomingQuestions threads={this.state.threads}/> }/>
+        </BrowserRouter>
         <FooterSection />
       </div>
     );
