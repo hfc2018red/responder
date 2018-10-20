@@ -5,6 +5,8 @@ import Nav from './components/Nav';
 import Response from './components/Response';
 import FooterSection from './components/FooterSection';
 import IncomingQuestions from './components/IncomingQuestions';
+import openSocket from 'socket.io-client';
+const socket = openSocket('https://hfc2018red.herokuapp.com');
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +25,16 @@ class App extends Component {
           threads: json
         }));
       })
+
+    socket.on('message', msg => {
+      window.fetch('/threads')
+        .then(res => {
+          return res.json();
+        }).then(json => {
+          this.setState(Object.assign({}, this.state, {
+            threads: json
+          }));
+        })
   }
   
   render() {
