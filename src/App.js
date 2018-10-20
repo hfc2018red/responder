@@ -31,7 +31,7 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    window.fetch('http://hfc2018red.herokuapp.com/message', {
+    window.fetch('https://hfc2018red.herokuapp.com/message', {
       method: 'POST',
       body: JSON.stringify({
         body: this.state.message,
