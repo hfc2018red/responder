@@ -1,20 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Response() {
+function Response(props) {
   return(
-    <div style={styles.main}>
+    <div>
       <h1> This will be userQuestion variable.</h1>
       <h3>Thank you for your question and we can suggest the following to help: </h3>
       <form>
-        <textarea style={styles.textarea}>
+        <textarea value={props.message} onChange={props.handleUpdate} style={styles.textarea}>
           Please type your chat, information or answer here.
         </textarea>
-        <p>Please include helpful links.</p>
-
-        <textarea style={styles.textarea}>
-          Please type your chat, information or answer here.
-        </textarea>
+	<button onClick={props.handleSubmit}>Send</button>
       </form>
       <button style={styles.button} type='submit'>Send</button>
     </div>

@@ -7,17 +7,18 @@ function IncomingQuestions(props) {
     <div style={styles.main}>
       <h1>Question Queue:</h1>
       {props.threads.map(thread => {
-        return thread.messages.map(message => {
-          return(
-            <div style={styles.list}>
-              {message.body}
-              <div>
-                <Button>Claim</Button>
-                <Button>Cancel</Button>
+        return (
+          <div>
+          {thread.messages.map(message => {
+            return(
+              <div style={styles.list}>
+                {message.body}
               </div>
-            </div>
-          )
-        })
+            )
+          })}
+          <Button onClick={props.handleSelectThread.bind(undefined, thread.uuid)}>Claim</Button>
+          </div>
+        )
       })}
     </div>
   );

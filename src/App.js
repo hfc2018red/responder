@@ -22,7 +22,34 @@ class App extends Component {
       activeThread: threadId
 	}));
   }
-  
+
+  handleUpdate(e) {
+    this.setState(Object.assign({}, this.state, {
+      message: e.target.value
+	}));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    window.fetch('http://hfc2018red.herokuapp.com/message', {
+      method: 'POST',
+      body: JSON.stringify({
+        body: this.state.message,
+		threadId: this.state.activeThread,
+		uuid: '1234'
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      return res.json();
+	}).then(json => {
+      this.setState(Object.assign({}, this.state, {
+        threadId: json
+	  }));
+	});
+  }
+
   componentDidMount() {
     window.fetch('https://hfc2018red.herokuapp.com/threads')
       .then(res => {
@@ -34,7 +61,7 @@ class App extends Component {
       })
 
     socket.on('message', msg => {
-      window.fetch('/threads')
+      window.fetch('https://hfc2018red.herokuapp.com/threads')
         .then(res => {
           return res.json();
         }).then(json => {
@@ -54,7 +81,7 @@ class App extends Component {
           <BrowserRouter>
             <Route render={()=><IncomingQuestions threads={this.state.threads} handleSelectThread={this.handleSelectThread.bind(this)} /> }/>
           </BrowserRouter>
-          <Response activeThread={this.state.activeThread} />
+          <Response activeThread={this.state.activeThread} handleUpdate={this.handleUpdate.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/>
         </div>
         <FooterSection />
       </div>
