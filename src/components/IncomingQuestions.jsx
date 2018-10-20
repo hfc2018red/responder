@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 
 function IncomingQuestions(props) {
   return(
     <div style={styles.main}>
       <h1>Question Queue:</h1>
       {props.threads.map(thread => {
-        thread.messages.map(message => {
+        return thread.messages.map(message => {
           return(
             <div>
               {message.body}
+              <div>
+                <Button>Claim</Button>
+                <Button>Cancel</Button>
+              </div>
             </div>
           )
         })
       })}
     </div>
-
   );
-  // console.log(props.threads);
 }
 
 IncomingQuestions.propTypes = {
-  threads: PropTypes.array
+  body: PropTypes.string
 };
 
 const styles = {
